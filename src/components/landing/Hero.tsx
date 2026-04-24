@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Play } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { ResumePreview } from "./ResumePreview";
 
 export function Hero() {
@@ -56,14 +57,14 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <button className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-[var(--gradient-violet-cyan)] px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03] animate-pulse-glow">
+            <Link to="/builder" className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-[var(--gradient-violet-cyan)] px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03] animate-pulse-glow">
               Build My Resume
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </button>
-            <button className="glass inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition-colors hover:bg-white/10">
+            </Link>
+            <Link to="/templates" className="glass inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition-colors hover:bg-white/10">
               <Play className="h-3.5 w-3.5" />
               See Templates
-            </button>
+            </Link>
           </motion.div>
 
           <motion.div
