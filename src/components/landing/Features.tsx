@@ -61,27 +61,47 @@ export function Features() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{ y: -6 }}
-              className="group relative"
+              className="group relative tilt-card"
             >
               <div
                 className="absolute -inset-px rounded-2xl opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-60"
                 style={{ background: `linear-gradient(135deg, ${f.color}, transparent)` }}
               />
-              <div className="glass relative h-full rounded-2xl p-7 transition-colors group-hover:border-white/20">
-                <div
-                  className="mb-5 inline-grid h-12 w-12 place-items-center rounded-xl border border-white/10 transition-all group-hover:scale-110"
-                  style={{
-                    background: `linear-gradient(135deg, ${f.color}, transparent)`,
-                    boxShadow: f.glow,
-                  }}
-                >
-                  <f.icon className="h-5 w-5 text-background" />
+              <div className="glass hover-shine relative h-full overflow-hidden rounded-2xl p-7 transition-colors group-hover:border-white/20">
+                {/* Orbiting ring behind icon */}
+                <div className="relative mb-5 inline-block">
+                  <motion.div
+                    aria-hidden
+                    className="absolute -inset-2 rounded-full opacity-0 transition-opacity group-hover:opacity-100"
+                    style={{
+                      background: `conic-gradient(from 0deg, transparent, ${f.color}, transparent 60%)`,
+                      filter: "blur(6px)",
+                    }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                  />
+                  <motion.div
+                    whileHover={{ rotate: [0, -8, 8, 0] }}
+                    transition={{ duration: 0.6 }}
+                    className="relative inline-grid h-12 w-12 place-items-center rounded-xl border border-white/10 transition-all group-hover:scale-110"
+                    style={{
+                      background: `linear-gradient(135deg, ${f.color}, transparent)`,
+                      boxShadow: f.glow,
+                    }}
+                  >
+                    <f.icon className="h-5 w-5 text-background" />
+                  </motion.div>
                 </div>
                 <h3 className="font-display text-xl font-semibold">{f.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{f.desc}</p>
 
                 <div className="mt-6 flex items-center gap-2 font-mono text-xs text-muted-foreground/70">
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: f.color, boxShadow: `0 0 10px ${f.color}` }} />
+                  <motion.span
+                    animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
+                    className="h-1.5 w-1.5 rounded-full"
+                    style={{ background: f.color, boxShadow: `0 0 10px ${f.color}` }}
+                  />
                   active
                 </div>
               </div>
