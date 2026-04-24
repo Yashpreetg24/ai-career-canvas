@@ -9,9 +9,12 @@ export function Hero() {
       {/* Animated grid + glow background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 grid-bg" />
-        <div className="absolute left-1/2 top-[-10%] h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-[var(--violet)]/30 blur-[140px]" />
-        <div className="absolute right-[-10%] top-[20%] h-[400px] w-[400px] rounded-full bg-[var(--cyan)]/20 blur-[120px]" />
-        <div className="absolute left-[-10%] bottom-[-10%] h-[400px] w-[400px] rounded-full bg-[var(--pink)]/20 blur-[120px]" />
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="aurora-bg" />
+        </div>
+        <div className="absolute left-1/2 top-[-10%] h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-[var(--violet)]/25 blur-[140px] animate-orb" />
+        <div className="absolute right-[-10%] top-[20%] h-[400px] w-[400px] rounded-full bg-[var(--cyan)]/20 blur-[120px] animate-orb" style={{ animationDelay: "-4s" }} />
+        <div className="absolute left-[-10%] bottom-[-10%] h-[400px] w-[400px] rounded-full bg-[var(--pink)]/20 blur-[120px] animate-orb" style={{ animationDelay: "-8s" }} />
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[1.1fr_1fr]">
@@ -38,7 +41,7 @@ export function Hero() {
           >
             Your Career,
             <br />
-            <span className="text-gradient-brand">Powered by AI</span>
+            <span className="text-gradient-animated">Powered by AI</span>
           </motion.h1>
 
           <motion.p
@@ -57,11 +60,11 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <Link to="/builder" className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-[var(--gradient-violet-cyan)] px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03] animate-pulse-glow">
+            <Link to="/builder" className="hover-shine group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-[var(--gradient-violet-cyan)] px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.03] animate-pulse-glow">
               Build My Resume
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
-            <Link to="/templates" className="glass inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition-colors hover:bg-white/10">
+            <Link to="/templates" className="glass hover-shine inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition-all hover:bg-white/10 hover:-translate-y-0.5">
               <Play className="h-3.5 w-3.5" />
               See Templates
             </Link>
